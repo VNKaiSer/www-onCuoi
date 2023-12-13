@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+</head>
+<body>
+<h1> List detail</h1>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Id </th>
+        <th>Phone </th>
+        <th>Email </th>
+        <th>Full Name </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th th:text="${candidates.id}"> </th>
+        <th th:text="${candidates.phone}"> </th>
+        <th th:text="${candidates.email}"> </th>
+        <th th:text="${candidates.fullName}"> </th>
+    </tr>
+    </tbody>
+</table>
+    <h1> List experiences</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Company Name</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Position</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="experience : ${candidates.getExperiences()}">
+        <td th:text="${experience.id}"></td>
+        <td th:text="${experience.fromDate}"></td>
+        <td th:text="${experience.toDate}"></td>
+        <td th:text="${experience.role}"></td>
+        <td th:text="${experience.workDescription}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
